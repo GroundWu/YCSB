@@ -36,6 +36,10 @@ YCSB/
 ### 3. 配置workload
 
 在使用前，需要配置workload文件中的OceanBase连接参数。编辑对应的workload文件（如`workloads/workload_put`）：
+- put: workloads/workload_put
+- read: workloads/workload_read
+- scan: workloads/workload_scan
+- load: workloads/workload_load
 
 ```bash
 # 编辑workload文件
