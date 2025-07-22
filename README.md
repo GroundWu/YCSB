@@ -63,14 +63,14 @@ PS:其他客户端参数设置，可以参考obkv-hbase-client和obkv-table-clie
 
 | 参数名 | 说明 | 默认值 |
 |--------|------|--------|
-| `operationcount` | 操作总数 | 1000 |
-| `recordcount` | 记录总数 | 1000 |
+| `operationcount` | 操作总数 | - |
+| `recordcount` | 记录总数 | - |
 | `insertstart` | 插入起始位置 | 0 |
-| `insertcount` | 插入记录数 | 1000 |
+| `insertcount` | 插入记录数 | 0 |
 | `requestdistribution` | 请求分布模式 | uniform |
 | `load` | 数据加载模式 | - |
 
-注意：insertstart和insertcount的情况下
+注意：没有指定insertstart和insertcount的情况下
 - put测试写入数据的起点是从recordcount开始
 - load测试载入数据的起点是从0开始
 
