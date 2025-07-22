@@ -13,24 +13,52 @@
 # permissions and limitations under the License. See accompanying                                                                                                                 
 # LICENSE file.                                                                                                                                                                   
 
+
 # Yahoo! Cloud System Benchmark
-# Workload B: Read mostly workload
-#   Application example: photo tagging; add a tag is an update, but most operations are to read tags
+# Workload A: Update heavy workload
+#   Application example: Session store recording recent actions
 #                        
-#   Read/update ratio: 95/5
+#   Read/update ratio: 50/50
 #   Default data size: 1 KB records (10 fields, 100 bytes each, plus key)
 #   Request distribution: zipfian
 
-recordcount=1000
-operationcount=1000
 workload=com.yahoo.ycsb.workloads.CoreWorkload
 
-readallfields=true
+recordcount=30000000
+operationcount=30000000
 
-readproportion=0.95
-updateproportion=0.05
+# The number of fields in a record
+fieldcount=10
+# The size of each field (in bytes)
+fieldlength=100
+
+insertproportion=1
+readproportion=0
+updateproportion=0
+readmodifywriteproportion=0
 scanproportion=0
-insertproportion=0
 
-requestdistribution=zipfian
+requestdistribution=uniform
 
+# threadcounts
+threadcount=10
+
+#### 以下连接方式二选一 ####
+hbase.oceanbase.odpMode=false
+#### ODP模式（hbase.oceanbase.odpMode=true）####
+hbase.oceanbase.odpAddr=
+hbase.oceanbase.odpPort=
+#### 直连模式（hbase.oceanbase.odpMode=false） ####
+##### url不需要带引号 #####
+hbase.oceanbase.paramURL=
+hbase.oceanbase.sysUserName=
+hbase.oceanbase.sysPassword=
+
+#### 租户用户账密 #####
+hbase.oceanbase.fullUserName=
+hbase.oceanbase.password=
+
+#### db、table、column family ####
+hbase.oceanbase.database=
+hbase.oceanbase.table=
+hbase.oceanbase.columnFamily=
